@@ -1,50 +1,101 @@
-# Shubh Deepawali — A Night of Light
+# Diwali Celebration
 
-An interactive Deepawali greeting where visitors can join the celebration rather than simply read a message.
+A single-page interactive Deepawali (Diwali) greeting built with HTML, CSS, and vanilla JavaScript. Light diyas, draw rangoli, launch fireworks over a moonlit ocean, open a mithai box of traditional sweets, and share festive wishes — all in a responsive, animated celebration experience.
 
-## Experience
+## Features
 
-- Switch two rows of decorative jhalar lights on and off, with additional hanging light strings down both sides of the page.
-- Start with two diyas already glowing, then light six larger diyas to complete the courtyard ritual.
-- Launch a large Japanese-inspired chrysanthemum firework above a moonlit ocean, with shimmering reflections.
-- Launch symmetrical anar fountains and chakri wheels with individual controls.
-- Draw a rangoli with a mouse, stylus or finger using 4-, 8- or 12-fold radial symmetry; adjust the pen stroke from 2–18 px, add a mandala or clear the canvas.
-- Watch a few blessing lanterns drift overhead and gentle fireflies glow in the hero sky.
-- Write a personal wish and release a lantern into the night.
-- Reveal a new Deepawali blessing.
-- Trigger additional fireworks in the celebration sky.
-- Share the greeting directly to WhatsApp; the live page URL is automatically included when the site is hosted on a public HTTPS address.
-- Enable optional synthesized chimes (sound is off by default).
+- **Jhalar lights** — Toggle decorative string lights and side jhalars on and off.
+- **Diya lighting ritual** — Eight clay diyas start unlit; tap each one to light its flame and fill the courtyard with warm light.
+- **Firework courtyard** — Launch Anar fountains and Chakri spinning wheels from opposite corners of the ocean stage.
+- **Full-screen ocean simulation** — A cinematic, full-screen Hanabi-style fireworks show over a dark, reflective ocean with an Exit button to return to the main page.
+- **Rangoli studio** — Draw mandala-style rangoli patterns with mouse or touch, 4–16 fold radial symmetry, adjustable pen size, color swatches, mandala stamp, and clear canvas.
+- **Wish lanterns** — Write a wish and release a sky lantern into the night.
+- **Quote carousel** — Cycle through festive Deepawali blessings.
+- **Mithai box** — Open a box of eight traditional Indian sweets; click any sweet to reveal its personalized blessing.
+- **WhatsApp sharing** — Share the celebration directly to WhatsApp (includes the live page URL when hosted on HTTPS).
+- **Optional sound** — Synthesized chimes that play only when explicitly enabled by the visitor.
+- **Responsive design** — Adapts to desktop and mobile screens, with reduced-motion support.
 
-## Design
+## Technology Stack
 
-The visual direction is a richly decorated midnight-black celebration with warm gold light, marigold toran details, layered colourful jhalars, glowing diyas, a moonlit shoreline and jewel-toned accents. The Japanese-inspired fireworks scene is a visual animation, not a real-world pyrotechnics guide. The layout is responsive, includes reduced-motion support, and requires no external assets or libraries.
+- **HTML5** — Semantic markup with ARIA attributes for accessibility.
+- **CSS3** — Custom properties, gradients, animations, media queries, and backdrop filters. All styling is embedded in `index.html`; no external stylesheets.
+- **Vanilla JavaScript** — Canvas 2D rendering for all fireworks and particle animations; no frameworks or libraries.
+- **Python 3 (standard library)** — `app.py` provides a lightweight local HTTP server using only `http.server`, `json`, `os`, `sys`, `webbrowser`, and `urllib.parse`. No `pip install` required.
 
-## Run locally
+## Project Structure
 
-Open `index.html` in a modern browser. No package installation or build step is required.
+```
+diwali-application/
+├── app.py                  # Python local HTTP server entry point
+├── index.html              # Main application (HTML + embedded CSS + JavaScript)
+├── README.md               # Project documentation
+├── requirements.txt        # Python dependencies note (standard library only)
+└── .gitignore              # Git ignore rules for Python and web projects
+```
 
-## Publish with GitHub Pages
+## Installation Requirements
 
-1. Create a public GitHub repository.
-2. Add `index.html` and `README.md` to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Select the `main` branch and `/ (root)`, then save.
-6. Once the deployment completes, open the URL shown in the Pages settings.
+- Python 3.x (for the local server; optional — you can also open `index.html` directly in a browser)
+- A modern web browser (Chrome, Edge, Firefox, Safari, etc.)
 
-## Customise
+No `npm`, `pip install`, or build step is required.
 
-- Edit the greeting and supporting copy in `index.html`.
-- Change the diya labels in the `diya-row` section.
-- Edit the messages in the `quotes` array near the bottom of the file.
-- Adjust the colours in the **MIDNIGHT DEEPAWALI** CSS section.
+## Setup Instructions
 
-Made for sharing a little more light. शुभ दीपावली.
+### Option 1 — Open directly in a browser
 
+Simply open `index.html` in any modern browser. All features work immediately without a server.
 
-## Final touchups
+### Option 2 — Run with the Python server
 
-- Decorative jhalar strings run down both sides of the page.
-- Rangoli drawing includes an adjustable pen-size slider and fold symmetry.
-- “Share on WhatsApp” opens WhatsApp with a festive message and, when hosted on a public HTTPS URL (such as GitHub Pages), includes the live page link.
+1. Ensure Python 3 is installed.
+2. From the project directory, run:
+   ```sh
+   python app.py
+   ```
+3. The server starts and opens your default browser at:
+   ```sh
+   http://localhost:8000
+   ```
+4. A health endpoint is available at:
+   ```sh
+   http://localhost:8000/health
+   ```
+   It returns JSON: `{"status": "ok", "server": "deepawali"}`
+5. Press **Ctrl+C** in the terminal to stop the server.
+
+The server serves all static files from the project directory, handles browser refresh safely, and blocks directory-traversal requests.
+
+## Usage Instructions
+
+| Feature | How to use |
+|---------|------------|
+| Jhalar lights | Click "✨ Jhalars: On" in the topbar to toggle decorative lights. |
+| Diyas | Click any unlit diya in the courtyard to light its flame. |
+| Anar / Chakri | Click the firework station buttons in the ocean section. |
+| Full-screen simulation | Click "Set off fireworks" or "Launch the grand chrysanthemum"; click **Exit simulation** to return. |
+| Rangoli | Click "Open rangoli studio," choose 4–16 folds, then draw on the canvas. |
+| Wish lantern | Type a wish and click "Release wish 🏮" or the lantern button. |
+| Mithai box | Click "Open mithai box 🍬," then tap any sweet to read its blessing. |
+| Quotes | Click "Another blessing" to cycle through festive messages. |
+| WhatsApp | Click "Share on WhatsApp" to share the celebration. |
+| Sound | Click "♫ Sound: Off" in the topbar to enable optional chimes. |
+
+## Credits
+
+Created for the Festival of Light. शुभ दीपावली.
+
+All illustrations (sweets, diyas, lanterns, fireworks) are drawn with CSS and HTML5 Canvas — no external image assets or font files are required.
+
+## Future Improvements
+
+- Add more sweet varieties and blessings to the Mithai box.
+- Add additional rangoli color palettes and symmetry presets.
+- Expand the ocean fireworks simulation with more shell types.
+- Add sound effects synchronized to firework bursts.
+- Add a gallery to save and revisit rangoli designs.
+
+## License
+
+No license file is included in this repository. If you plan to publish or redistribute this project publicly, please add an appropriate `LICENSE` file (e.g., MIT, Apache-2.0) before doing so.

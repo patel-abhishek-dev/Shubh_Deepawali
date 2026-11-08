@@ -1,0 +1,5 @@
+# No third-party Python packages are required.
+# The Diwali application server (app.py) uses only Python standard-library modules:
+#   http.server, json, os, sys, webbrowser, urllib.parse
+#
+# To run: python app.py
